@@ -29,6 +29,7 @@ const App = () => (
       <Route exact path="/profile" component={Profile} />
       <Route exact path='/comment' component={Comments} />
       <Route exact path='/leader-board' component={LeaderBoard} />
+      <Route path="/" component={Register} />
     </Switch>
   </BrowserRouter>
 )
