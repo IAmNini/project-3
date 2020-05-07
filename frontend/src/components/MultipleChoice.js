@@ -16,10 +16,12 @@ class MultipleChoice extends React.Component {
       }
     }
   }
+
   componentDidMount() {
     axios.get('https://opentdb.com/api.php?amount=1&type=multiple')
       .then(res => this.setState({ wholeQuestion: res.data }))
   }
+  
   handlePlayerClick(event) {
     if (event.target.innerHTML === this.state.wholeQuestion.results.map((e) => (e.correct_answer))[0]) {
       event.target.style.backgroundColor = 'green'
@@ -59,6 +61,7 @@ class MultipleChoice extends React.Component {
       }, 400)
     }
   }
+
   render() {
     const { results } = this.state.wholeQuestion
     const randomIndex = Math.floor(Math.random() * 4)
