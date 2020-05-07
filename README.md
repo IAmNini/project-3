@@ -7,7 +7,7 @@
 This project was in teams of 4, and was our first full-stack app. We used React in the front end and MongoDB and Express in the back end. We made a trivia game using an external API called OpenTriviaDB with questions and answers, and stored user information, scores and comments in our own database.
 
 
-You can launch the site on Heroku [here](https://project-3-trivia.herokuapp.com/comment) 
+You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/) 
 
 ## The Brief 
 
