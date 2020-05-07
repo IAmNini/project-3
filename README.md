@@ -17,7 +17,7 @@ You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/)
 - **Consume your API with a separate front-end built with React** 
 - **Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models** 
 
-## The Technologies used 
+## Technologies Used 
 
 - HTML5
 - CSS3
