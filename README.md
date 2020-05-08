@@ -103,7 +103,7 @@ schema
     }
     next()
   })
-  
+
 schema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password)
 }
@@ -300,7 +300,7 @@ function secureRoute(req, res, next) {
 
 ## The Front-End
 
-We decided to do a mobile first approach when bulding the game. It was build using React and contains 11 components.
+We decided to design our app with mobile-first view when bulding the game. It was built using React and has 11 components.
 
 <img  src=frontend/src/styles/images/quiz.png height=300> <img  src=frontend/src/styles/images/login.png height=300> <img  src=frontend/src/styles/images/multiple-choice.png height=300>
 
