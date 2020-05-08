@@ -298,7 +298,7 @@ function secureRoute(req, res, next) {
 }
 ```
 
-## The Front-End
+## The Frontend
 
 We decided to design our app with mobile-first view when bulding the game. It was built using React and has 11 components.
 
