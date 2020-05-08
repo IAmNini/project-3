@@ -3,9 +3,7 @@
 
 ## Overview
 
-
 This project was in teams of 4, and was our first full-stack app. We used React in the front end and MongoDB and Express in the back end. We made a trivia game using an external API called OpenTriviaDB with questions and answers, and stored user information, scores and comments in our own database.
-
 
 You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/) 
 
@@ -30,9 +28,7 @@ You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/)
 - SASS
 - Heroku
 
-
 ## The Approach 
-
 
 We decided to use both an external API and our own data in the backend.
 
@@ -58,17 +54,20 @@ const schema = new mongoose.Schema({
 
 ```
 **User Model**
+
 ```js
 const scoreSchema = new mongoose.Schema({
   right: { type: Number, default: 0 },
   wrong: { type: Number, default: 0 }
 })
+
 const schema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
   score: scoreSchema
 },
+
 {
   toJSON: {
     transform(doc, json) {
@@ -81,12 +80,14 @@ const schema = new mongoose.Schema({
     }
   }
 })
+
 schema.plugin(require('mongoose-unique-validator'))
 schema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation
   })
+
 schema
   .pre('validate', function checkPassword(next) {
     if (this.isModified('password') && this._passwordConfirmation !== this.password) {
@@ -94,6 +95,7 @@ schema
     }
     next()
   })
+
 schema
   .pre('save', function hashPassword(next) {
     if (this.isModified('password')) {
@@ -101,6 +103,7 @@ schema
     }
     next()
   })
+  
 schema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password)
 }
@@ -144,7 +147,6 @@ function login(req, res) {
 
 - `/display-score`
 
-
 From the DisplayScore component we are putting to the addToScore endpoint.
 
 ```js
@@ -185,7 +187,6 @@ function getUserInfo(req, res) {
 
 ```
 
-
 - `/leader-board`
 
 From the LeaderBoard component we are geting from the index endpoint.
@@ -200,15 +201,11 @@ function index (req, res) {
 }
 ```
 
-
-
 Comment:
 
-  
   - `Comment`
 
   From the Comments component we are getting all comments, posting and deleting, from their respective endpoints.
-
 
   ```js
   function allComments (req, res) {
@@ -220,7 +217,6 @@ Comment:
     })
 }
 
-
 function commentCreate(req, res){
   req.body.user = req.currentUser
   Comment
@@ -229,7 +225,6 @@ function commentCreate(req, res){
       res.status(201).send(post)
     })
 }
-
 
 function commentDelete(req, res) {
   Comment
@@ -241,9 +236,7 @@ function commentDelete(req, res) {
     .then(() => res.status(200).json({ message: 'comment deleted' }))
     .catch(err => console.log(err))
 }
-
 ```
- 
   
 **SECURE ROUTE**
 
@@ -257,8 +250,6 @@ router.route('/user/:id')
 ```
 
 You need to be authorized to put (edit) the user info but not to get.
-
-
 
 We need a JSON Web Token for this. When a user logs in, they are assigned a token:
 
@@ -305,9 +296,7 @@ function secureRoute(req, res, next) {
       .catch(() => res.status(401).send({ message: 'Unauthorized' }))
   })
 }
-
 ```
-
 
 ## The Front-End
 
@@ -315,17 +304,11 @@ We decided to do a mobile first approach when bulding the game. It was build usi
 
 <img  src=frontend/src/styles/images/quiz.png height=300> <img  src=frontend/src/styles/images/login.png height=300> <img  src=frontend/src/styles/images/multiple-choice.png height=300>
 
-
-
-
-
 **COMPONENTS**
 
 - `Register.js` and `Login.js`
 
-
 The information entered by the user in the registration and login forms is set as state and then posted to our backed endpoints through  `/api/register` and `/api/login`. 
-
 
 `Register.js`
 
@@ -361,7 +344,6 @@ class Register extends React.Component {
       this.state.data)
       .then(() => this.props.history.push('/login'))
   }
-
 ```
 
 `Login.js`
@@ -395,14 +377,9 @@ class Login extends React.Component {
         this.props.history.push('/quizzes')
       })
   }
-
-
 ```
 
-
-- `MultipleChoice.js` and `TrueOrFalse.js`
-
-We are geting the questions and answers from the choosen API with an axios method what after incorrect into array and then 
+- `MultipleChoice.js` and `TrueOrFalse.js` 
 
 We are fetching an array of incorrect answers and we are inserting the correct answer at a random index in that array.
 
@@ -453,11 +430,7 @@ handlePlayerClick(event) {
       }, 400)
     }
   }
-
 ```
-
-
-
 
  - `DisplayScore.js`
 
@@ -483,7 +456,6 @@ class DisplayScore extends React.Component {
       { headers: { Authorization: `Bearer ${auth.getToken()}` } })
   }
 ```
-
 
 - `Comments.js` and `NewComment.js`
 
@@ -512,9 +484,8 @@ In the `NewComment.js` component users write their comments in a form and then t
       </form>
     </div>
   }
-
-
 ```
+
 In the `Comment.js` component we are getting the information from our previous post, and we are adding a `handleDelete()` function, which is allowing logged-in users to delete their own comments but not other users'. We check if a comment belongs to the current user with the Authorization method. 
 
 
@@ -536,9 +507,7 @@ In the `Comment.js` component we are getting the information from our previous p
   isOwner(comment) {
     return auth.getUserId() === comment.user.id
   }
-
 ```
-
 
 ## Challenges
 
