@@ -511,17 +511,22 @@ In the `Comment.js` component we are getting the information from our previous p
 
 ## Challenges
 
- - One of our main challenges was figuring out how to associate a user with their scores. We had to try a few different model structures before we finally decided to have a user model and keep the scores there.
+- One of our main challenges was figuring out how to associate a user with their scores. We had to try a few different model structures before we finally decided to have a user model and keep the scores there.
 
- - Some of the game logic in the frontend was definitely mindbending. Especially displaying the right answer when the player clicks on the wrong answer was tricky. But it was interesting to learn about Refs.
+- Some of the game logic in the frontend was definitely mindbending. Especially displaying the right answer when the player clicks on the wrong answer was tricky. But it was interesting to learn about Refs.
 
- - The API we were fetching our questions from had special coded characters that were not displaying correctly in our app. We tried many ways to fix this issue but nothing was working. We ended up having to replace each character manually which was long and messy.
+- The API we were fetching our questions from had special coded characters that were not displaying correctly in our app. We tried many ways to fix this issue but nothing was working. We ended up having to replace each character manually which was long and messy.
 
+## Successes
 
- ## Successes
-
- - Since this was our first full-stack application, working on every part of the project from idea planning to deployment, was very rewarding. Seeing that we were able to create an entire application with frontend and backend was a great satisfaction.
+- Since this was our first full-stack application, working on every part of the project from idea planning to deployment, was very rewarding. Seeing that we were able to create an entire application with frontend and backend was a great satisfaction.
  
- - This was also our first time working as a group with Git. Learning about how to avoid conflicts and put everyone’s work together was demanding at the beginning, but proved to be very useful for group collaboration.
+- This was also our first time working as a group with Git. Learning about how to avoid conflicts and put everyone’s work together was demanding at the beginning, but proved to be very useful for group collaboration.
 
 - Overcoming the limits of working remotely from home.
+
+## Potential Future Features
+
+- Maybe a timer to answer a question in a limit of time.
+
+- We were thinking about displaying the ranking in percentages instead of correct answers, to make it more independent from the number of games. But that didn't satisfy us very much so we were thinking about maybe having a new point system.
