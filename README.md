@@ -5,14 +5,14 @@
 
 This project was in teams of 4, and was our first full-stack app. We used React in the front end and MongoDB and Express in the back end. We made a trivia game using an external API called OpenTriviaDB with questions and answers, and stored user information, scores and comments in our own database.
 
-You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/) 
+You can launch the site on Heroku [here](http://nini-project-3.herokuapp.com/).
 
 ## The Brief 
 
 - **Work in a team, using git to code collaboratively.**
-- **Build a full-stack application by making your own backend and your own front-end**
-- **Use an Express API to serve your data from a Mongo database**  
-- **Consume your API with a separate front-end built with React** 
+- **Build a full-stack application by making the backend and the front-end**
+- **Use an Express API to serve data from a Mongo database**  
+- **Consume the API with a separate front-end built with React** 
 - **Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models** 
 
 ## Technologies Used 
@@ -173,7 +173,7 @@ function addToScore(req, res) {
 
 - `/profile`
 
-From the Profile component we are geting from the getUserInfo endpoint.
+From the Profile component we are getting from the getUserInfo endpoint.
 
 ```js
 function getUserInfo(req, res) {
@@ -189,7 +189,7 @@ function getUserInfo(req, res) {
 
 - `/leader-board`
 
-From the LeaderBoard component we are geting from the index endpoint.
+From the LeaderBoard component we are getting from the index endpoint.
 
 ```js
 function index (req, res) {
@@ -385,10 +385,9 @@ We are fetching an array of incorrect answers and we are inserting the correct a
 
 So now we have an array of answers and we can just render them and the correct answer will always be at random position. 
 
-When a player clicks on an answer the function `handlePlayerClick()` will check if the `innerHTML` of the selected answer matches the `innerHTML` of the correct answer. if it does the button will turn green. If it doesn't the button will turn red and we are using Ref to identify the button with the correct answer and change it to green.
+When a player clicks on an answer, the function `handlePlayerClick()` will check if the `innerHTML` of the selected answer matches the `innerHTML` of the correct answer. If it does the button will turn green. If it doesn't the button will turn red and we are using Ref to identify the button with the correct answer and change it to green.
 
- Everytime a player click on an answer we are saving their total of right and wrong answers to `localStorage`. When the user has finished the quiz (answer 10 questions), we get our totals from `localStorage` to display their score. 
-
+Everytime a player clicks on an answer, we are saving their total of right and wrong answers to `localStorage`. When the user has finished the quiz (answer 10 questions), we get our totals from `localStorage` to display their score.
 
 ```js
 handlePlayerClick(event) {
@@ -434,7 +433,7 @@ handlePlayerClick(event) {
 
  - `DisplayScore.js`
 
-After we get the player's score from `localStorage` we use a put method to add it to our user information in the backend.
+After we get the player's score from `localStorage`, we use a put method to add it to our user information in the backend.
 
 ```js
 class DisplayScore extends React.Component {
@@ -459,7 +458,7 @@ class DisplayScore extends React.Component {
 
 - `Comments.js` and `NewComment.js`
 
-In the `NewComment.js` component users write their comments in a form and then through the `handleSubmit()` function, we are posting it to our backend endpoint `/api/comments`. 
+In the `NewComment.js` component users write their comments in a form and then, through the `handleSubmit()` function, we are posting it to our backend endpoint `/api/comments`. 
 
 ```js
   handleSubmit(event) {
@@ -519,7 +518,7 @@ In the `Comment.js` component we are getting the information from our previous p
 
 ## Successes
 
-- Since this was our first full-stack application, working on every part of the project from idea planning to deployment, was very rewarding. Seeing that we were able to create an entire application with frontend and backend was a great satisfaction.
+- Since this was our first full-stack application, working on every part of the project from idea planning to deployment was very rewarding. Seeing that we were able to create an entire application with frontend and backend was a great satisfaction.
  
 - This was also our first time working as a group with Git. Learning about how to avoid conflicts and put everyone’s work together was demanding at the beginning, but proved to be very useful for group collaboration.
 
@@ -527,6 +526,6 @@ In the `Comment.js` component we are getting the information from our previous p
 
 ## Potential Future Features
 
-- Maybe a timer to answer a question in a limit of time.
+- Maybe a timer to answer a question in a limited time.
 
-- We were thinking about displaying the ranking in percentages instead of correct answers, to make it more independent from the number of games. But that didn't satisfy us very much so we were thinking about maybe having a new point system.
+- We were thinking about displaying the ranking in percentages instead of correct answers, to make it more independent from the number of games. Since that didn't satisfy us very much, we were thinking about maybe having a new point system.
